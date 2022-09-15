@@ -4,6 +4,7 @@ var uri =
 
 const dotenv = require("dotenv");
 dotenv.config();
+console.log(dotenv);
 
 // Declare a variable named option and assign optional settings
 const options = {
