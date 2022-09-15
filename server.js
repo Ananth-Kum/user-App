@@ -9,7 +9,11 @@ require("./config/db");
 // create express app
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    orgin: "http://localhost:4200",
+  })
+);
 
 // define port to run express app
 const port = process.env.PORT || 3000;
