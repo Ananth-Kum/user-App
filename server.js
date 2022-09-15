@@ -16,10 +16,12 @@ app.use(
 );
 
 // define port to run express app
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 // use bodyParser middleware on express app
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(express.static("public"));
 
 // Add endpoint
 app.get("/", (req, res) => {
