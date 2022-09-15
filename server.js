@@ -12,6 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:4200",
+    credentials: true,
   })
 );
 
@@ -39,7 +40,7 @@ routes(app);
 
 app.use(function (req, res, next) {
   //Enabling CORS
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header(
     "Access-Control-Allow-Headers",
