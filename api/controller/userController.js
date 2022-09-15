@@ -47,16 +47,16 @@ exports.createNewUser = (req, res) => {
 // };
 
 // deleteUser function - To delete user by id
-exports.deleteUser = async (req, res) => {
-  let userData = await User.find({ _id: req.params.id });
-  if (userData.length > 0) {
-    await User.deleteOne({ _id: req.params.id }, (err) => {
-      if (err) {
-        return res.status(404).send(err);
-      }
-      res.status(200).json({ message: "User successfully deleted" });
-    });
-  } else {
-    res.json({ message: "User not found to delete" });
-  }
-};
+// exports.deleteUser = async (req, res) => {
+//   let userData = await User.find({ _id: req.params.id });
+//   if (userData.length > 0) {
+//     await User.deleteOne({ _id: req.params.id }, (err) => {
+//       if (err) {
+//         return res.status(404).send(err);
+//       }
+//       res.status(200).json({ message: "User successfully deleted" });
+//     });
+//   } else {
+//     res.json({ message: "User not found to delete" });
+//   }
+// };
