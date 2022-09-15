@@ -9,12 +9,7 @@ require("./config/db");
 // create express app
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost:4200",
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // define port to run express app
 const port = process.env.PORT || 3000;
@@ -38,13 +33,13 @@ app.listen(port, () => {
 var routes = require("./api/routes/userRoutes"); //importing route
 routes(app);
 
-// app.use(function (req, res, next) {
-//   //Enabling CORS
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
-//   );
-//   next();
-// });
+app.use(function (req, res, next) {
+  //Enabling CORS
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
+  );
+  next();
+});

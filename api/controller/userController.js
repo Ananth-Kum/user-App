@@ -8,7 +8,6 @@ exports.listAllUser = (req, res) => {
     if (err) {
       res.status(500).send(err);
     }
-    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
     res.status(200).json(user);
   });
 };
@@ -28,7 +27,6 @@ exports.createNewUser = (req, res) => {
       res.status(500).send(err);
     }
     // console.log(newUser);
-    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
     res.status(201).json(newUser);
   });
 };
