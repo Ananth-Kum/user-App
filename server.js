@@ -45,5 +45,6 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
   );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
