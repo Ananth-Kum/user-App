@@ -1,14 +1,14 @@
 // require express and body parser
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require("cors");
+// const cors = require("cors");
 
 // Import DB Connection
 require("./config/db");
 
 // create express app
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 // define port to run express app
 const port = process.env.PORT || 3000;
@@ -28,7 +28,7 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-app.options("*", cors());
+// app.options("*", cors());
 
 // Import API route
 var routes = require("./api/routes/userRoutes"); //importing route
