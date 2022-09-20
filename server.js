@@ -41,19 +41,11 @@ app.get("/", (req, res) => {
 });
 
 // Listen to server
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
-const HOST = "0.0.0.0";
-
-const server = app.listen(port, HOST, function () {
-  console.log("Server running on: " + HOST + ":" + port);
-  process.on("SIGINT", function () {
-    server.close();
-  });
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
 
-// app.options("*", cors());
+app.options("*", cors());
 
 // Import API route
 var routes = require("./api/routes/userRoutes"); //importing route
