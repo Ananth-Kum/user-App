@@ -8,8 +8,24 @@ require("./config/db");
 
 // create express app
 const app = express();
+const whitelist = ["http://localhost:3000"];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) {
+      return callback(null, true);
+    }
 
-app.use(cors());
+    if (whitelist.indexOf(origin) === -1) {
+      var msg =
+        "The CORS policy for this site does not " +
+        "allow access from the specified Origin.";
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+};
+
+app.use(cors(corsOptions));
 
 // define port to run express app
 const port = process.env.PORT || 3000;
@@ -37,7 +53,7 @@ const server = app.listen(port, HOST, function () {
   });
 });
 
-app.options("*", cors());
+// app.options("*", cors());
 
 // Import API route
 var routes = require("./api/routes/userRoutes"); //importing route
