@@ -9,11 +9,7 @@ require("./config/db");
 // create express app
 const app = express();
 
-app.use(
-  cors({
-    orgin: "https://user-angular-app.herokuapp.com/",
-  })
-);
+app.use(cors());
 
 // define port to run express app
 const port = process.env.PORT || 3000;
@@ -36,10 +32,12 @@ const HOST = "0.0.0.0";
 
 const server = app.listen(port, HOST, function () {
   console.log("Server running on: " + HOST + ":" + port);
-  // process.on("SIGINT", function () {
-  //   server.close();
-  // });
+  process.on("SIGINT", function () {
+    server.close();
+  });
 });
+
+app.options("*", cors());
 
 // Import API route
 var routes = require("./api/routes/userRoutes"); //importing route
