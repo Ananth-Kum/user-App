@@ -7,5 +7,5 @@ module.exports = function (app) {
   // request for /user endpoints
   app.route("/addUser").post(userList.createNewUser);
   app.route("/getUser").get(userList.listAllUser);
-  // app.route("/deleteUser/:id").delete(userList.deleteUser);
+  app.route("/deleteUser/:id").delete(userList.deleteUser);
 };
